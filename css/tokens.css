@@ -1,0 +1,141 @@
+/* =========================================================
+   TOKENS — Sistema visual "Caderno de Sustentabilidade Digital"
+   Paleta inspirada em papel mineral, floresta amazônica e cobre recuperado.
+   ========================================================= */
+:root {
+  /* Escala de espaçamento */
+  --space-3xs: 2px;
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+
+  /* Escala tipográfica (controlada pelo botão A-/A+ via --font-scale) */
+  --font-scale: 1;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+  --text-md: 1.03125rem;
+  --text-lg: 1.2rem;
+  --text-xl: 1.45rem;
+  --text-2xl: 1.85rem;
+  --text-display: clamp(2.55rem, 4.9vw + 0.85rem, 5rem);
+  --text-display-s: clamp(2rem, 3.6vw + 0.6rem, 3.35rem);
+  --text-section: clamp(1.85rem, 2.5vw + 0.9rem, 3.1rem);
+  --text-title: clamp(1.2rem, 0.7vw + 0.9rem, 1.55rem);
+  --text-lead: clamp(1.0625rem, 0.4vw + 0.95rem, 1.3rem);
+
+  /* Superfícies e tintas (contraste WCAG 2.2 AA+) */
+  --paper: #F4F6F1;
+  --paper-2: #E8EFE6;
+  --paper-3: #DCE6DA;
+  --surface: #FFFFFF;
+  --ink: #13261F;
+  --ink-2: #2B4239;
+  --muted: #4C6258;
+  --line: #C8D5C7;
+
+  /* Acentos semânticos */
+  --green: #1B5E3F;
+  --green-hover: #144930;
+  --green-soft: #D7EBE0;
+  --green-ink: #FFFFFF;
+  --green-dark: #0F2E22;
+  --green-dark-2: #163E2F;
+
+  --amber: #B45309;
+  --amber-dark: #8F4006;
+  --amber-soft: #FEF1DE;
+  --danger: #A6362B;
+  --danger-soft: #FBE9E7;
+
+  /* Faixa escura (barra a11y, dados em destaque, legislação, rodapé) */
+  --band: #0F2E22;
+  --band-card: #163C2E;
+  --band-ink: #F4F7F3;
+  --band-muted: #BFD2C8;
+  --band-rule: rgba(215, 235, 224, 0.22);
+  --band-mint: #86E0B3;
+  --band-gold: #F2C96B;
+  --band-coral: #FF9478;
+
+  /* Tipografia */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Layout & ritmo */
+  --container: 1440px;
+  --gutter: clamp(16px, 4vw, 60px);
+  --nav-h: 72px;
+  --section-gap: clamp(56px, 7.5vw, 112px);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+  --shadow-card: 0 2px 10px rgba(15, 46, 34, 0.06);
+  --shadow-elevated: 0 14px 36px rgba(15, 46, 34, 0.14);
+
+  /* Movimento */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-micro: 130ms;
+  --dur-short: 240ms;
+  --dur-long: 520ms;
+
+  /* Camadas */
+  --z-base: 1;
+  --z-sticky: 300;
+  --z-float: 360;
+  --z-modal: 450;
+  --z-toast: 520;
+
+  color-scheme: light;
+}
+
+/* Modo Alto Contraste (WCAG AAA) */
+body.alto-contraste {
+  --paper: #FFFFFF;
+  --paper-2: #F2F2F2;
+  --paper-3: #E0E0E0;
+  --surface: #FFFFFF;
+  --ink: #000000;
+  --ink-2: #000000;
+  --muted: #1A1A1A;
+  --line: #000000;
+
+  --green: #004D29;
+  --green-hover: #00331B;
+  --green-soft: #FFFFFF;
+  --green-ink: #FFFFFF;
+  --green-dark: #000000;
+  --green-dark-2: #111111;
+
+  --amber: #8A3800;
+  --amber-dark: #602500;
+  --amber-soft: #FFFFFF;
+  --danger: #990000;
+  --danger-soft: #FFFFFF;
+
+  --band: #000000;
+  --band-card: #121212;
+  --band-ink: #FFFFFF;
+  --band-muted: #FFFFFF;
+  --band-rule: #FFFFFF;
+  --band-mint: #7CFFB2;
+  --band-gold: #FFE46B;
+  --band-coral: #FF9E8A;
+  --shadow-card: none;
+}
+
+body.alto-contraste .stat-card,
+body.alto-contraste .sim-card,
+body.alto-contraste .tech-panel,
+body.alto-contraste .triage-card,
+body.alto-contraste .quiz-box,
+body.alto-contraste .hero-card,
+body.alto-contraste .pue-box {
+  border-width: 2px;
+}

@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T.I Verde — Tecnologia, Inovação e Sustentabilidade | Circuito Integrador 2026 · EETEPA Vilhena Alves</title>
+  <meta name="description" content="T.I Verde — Tecnologia, Inovação e Sustentabilidade. Projeto da turma P2 de Informática Subsequente 2026 da EETEPA Vilhena Alves para o Circuito Integrador 2026 (26/11/2026, às 19h30).">
+  <meta name="theme-color" content="#F4F6F1">
+  <meta property="og:title" content="T.I Verde — Tecnologia, Inovação e Sustentabilidade | EETEPA Vilhena Alves">
+  <meta property="og:description" content="Circuito Integrador 2026 (26/11/2026 às 19h30) · Turma P2 de Informática Subsequente 2026. Dados reais, simulador de laboratório, PUE, triagem e desafio.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/interactive.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ========== BARRA DE ACESSIBILIDADE ========== -->
+  <div class="a11y-bar" role="region" aria-label="Opções de acessibilidade">
+    <div class="container a11y-bar__row">
+      <p class="a11y-bar__hint">Apresentando na mostra? Tecle <kbd>P</kbd> para tela cheia e use <kbd>←</kbd> <kbd>→</kbd> para navegar.</p>
+      <div class="a11y-bar__controls">
+        <span>Acessibilidade:</span>
+        <button type="button" id="fontMinus" aria-label="Diminuir tamanho do texto">A−</button>
+        <button type="button" id="fontPlus" aria-label="Aumentar tamanho do texto">A+</button>
+        <button type="button" id="contrastBtn" aria-pressed="false">Alto contraste</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CABEÇALHO FIXO ========== -->
+  <header class="site-header" id="siteHeader">
+    <nav class="container nav" aria-label="Menu principal">
+      <a class="brand" href="#inicio" aria-label="TI Verde, voltar ao início">
+        <img class="brand__icon" src="favicon.svg" alt="" width="38" height="38">
+        <span class="brand__text">
+          <strong>T.I Verde</strong>
+          <small>EETEPA Vilhena Alves · P2 Subsequente 2026</small>
+        </span>
+      </a>
+
+      <div class="nav__links" id="navLinks">
+        <a href="#panorama">Dados</a>
+        <a href="#simulador">Laboratório</a>
+        <a href="#datacenter">Técnicas</a>
+        <a href="#legislacao">Lei</a>
+        <a href="#triagem">Triagem</a>
+        <a href="#agir">Como agir</a>
+        <a href="#desafio">Desafio</a>
+        <a href="#turma">Turma P2</a>
+      </div>
+
+      <div class="hud" id="hud" hidden>
+        <button type="button" class="hud__score" id="hudOpen" aria-haspopup="dialog" aria-controls="conquistas">
+          <span class="hud__level" id="hudLevel">Nível 1</span>
+          <span class="hud__xp"><strong id="hudXp">0</strong> XP</span>
+          <span class="hud__meter" aria-hidden="true"><span id="hudMeter"></span></span>
+          <span class="hud__badges" id="hudBadges">0/10</span>
+        </button>
+        <button type="button" class="hud__icon" id="soundBtn" aria-pressed="false" aria-label="Ligar ou desligar efeitos sonoros" title="Som desligado">♪</button>
+        <button type="button" class="hud__icon hud__present" id="presentBtn" aria-pressed="false" title="Modo apresentação (tecla P)">Apresentar</button>
+      </div>
+
+      <button class="nav__menu" id="menuButton" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    </nav>
+    <span class="read-progress" id="readProgress" aria-hidden="true"></span>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ===== 00. ABERTURA / HERO ===== -->
+    <section class="hero slide" id="inicio" aria-labelledby="titulo-hero" data-step data-title="Início">
+      <div class="container">
+        <div class="hero__grid">
+          <div>
+            <p class="eyebrow">Circuito Integrador 2026 · EETEPA Vilhena Alves · P2 Informática Subsequente 2026</p>
+            <h1 id="titulo-hero">T.I Verde: tecnologia, inovação e <em>sustentabilidade.</em></h1>
+            <p class="lead"><strong>TI Verde</strong> (Green IT) é o conjunto de práticas para fabricar, usar, otimizar e descartar equipamentos e sistemas de computação com menos desperdício de energia, maior vida útil e logística reversa responsável.</p>
+            <div class="hero__pills" aria-label="Pilares centrais do projeto">
+              <span class="pill">26/11/2026 · Início às 19h30</span>
+              <span class="pill">Turma P2 Informática Subsequente 2026</span>
+              <span class="pill">Simulador &amp; Triagem</span>
+              <span class="pill">Modo apresentação (P)</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="#panorama" id="startMission">Começar pelo diagnóstico <span aria-hidden="true">↓</span></a>
+              <a class="btn btn--quiet" href="#simulador">Simular laboratório</a>
+              <a class="text-link" href="#desafio">Ir ao desafio relâmpago →</a>
+            </div>
+          </div>
+
+          <figure class="hero-card" id="heroCard" aria-labelledby="heroCardCaption">
+            <div class="hero-stat-head">
+              <div>
+                <strong class="hero-stat-big" id="heroStatValue">22,3<small>%</small></strong>
+                <p id="heroCardCaption" style="font-size: var(--text-sm); color: var(--ink-2); margin-top: 4px;">
+                  Apenas <strong>2 em cada 10</strong> toneladas de lixo eletrônico no mundo têm reciclagem formal documentada.
+                </p>
+              </div>
+              <span class="hero-stat-tag" id="heroStatTag">Cenário atual</span>
+            </div>
+
+            <div class="device-row" id="heroDevices" aria-hidden="true">
+              <span class="device-dot is-recycled"></span>
+              <span class="device-dot is-recycled"></span>
+              <span class="device-dot is-wasted"></span>
+              <span class="device-dot is-wasted"></span>
+              <span class="device-dot is-wasted"></span>
+              <span class="device-dot is-wasted"></span>
+              <span class="device-dot is-wasted"></span>
+              <span class="device-dot is-wasted"></span>
+              <span class="device-dot is-wasted"></span>
+              <span class="device-dot is-wasted"></span>
+            </div>
+
+            <table class="hero-compare">
+              <caption class="visually-hidden">Comparação de uma estação de trabalho típica antes e depois da TI Verde</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Prática em 1 PC</th>
+                  <th scope="col">Sem TI Verde</th>
+                  <th scope="col">Com TI Verde</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Ocioso ligado</th>
+                  <td class="val-bad">~65 W contínuos</td>
+                  <td class="val-good">~3 W (suspensão)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Vida útil média</th>
+                  <td class="val-bad">3 a 4 anos</td>
+                  <td class="val-good">6 a 7 anos (SSD/RAM)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Fim do ciclo</th>
+                  <td class="val-bad">Descarte comum</td>
+                  <td class="val-good">Logística reversa</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="hero-card__foot">
+              <span>Fonte global: ITU/UNITAR, Global E-waste Monitor 2024.</span>
+              <button type="button" class="btn btn--quiet" id="heroToggle" style="min-height: 36px; padding: 4px 12px; font-size: var(--text-xs);" hidden>Simular meta circular</button>
+            </div>
+          </figure>
+        </div>
+
+        <nav class="chapter-strip" aria-label="Capítulos da apresentação">
+          <a href="#panorama"><span>01 · Panorama</span>62 milhões de toneladas</a>
+          <a href="#simulador"><span>02 · Laboratório</span>Simulador P2</a>
+          <a href="#datacenter"><span>03 · Engenharia</span>PUE &amp; 4 frentes</a>
+          <a href="#legislacao"><span>04 · Legislação</span>PNRS e PEVs</a>
+          <a href="#triagem"><span>05 · Prática</span>Triagem &amp; desafio</a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ===== 01. PANORAMA EM DADOS REAIS ===== -->
+    <section class="section section--tint slide" id="panorama" aria-labelledby="titulo-panorama" data-step data-title="Dados">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Capítulo 01 · O tamanho do problema</p>
+          <h2 id="titulo-panorama">62 milhões de toneladas de lixo eletrônico em um único ano.</h2>
+          <p class="lead">A geração de resíduos eletroeletrônicos cresce cinco vezes mais rápido do que a reciclagem formal no mundo. Os dados abaixo vêm de relatórios internacionais e mostram por que a área de TI precisa agir.</p>
+        </div>
+
+        <div class="headline-meter reveal">
+          <div class="headline-meter__track" aria-hidden="true">
+            <div class="headline-meter__fill" id="headlineBar" data-target-width="22.3"></div>
+          </div>
+          <div class="headline-meter__meta">
+            <span><strong class="count-up" data-count-to="22.3" data-decimals="1" data-suffix="%">22,3%</strong> coletados e reciclados formalmente no mundo · <strong>77,7%</strong> sem destinação formal documentada</span>
+            <span style="color: var(--muted);">ITU / UNITAR, Global E-waste Monitor 2024 (ano-base 2022)</span>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <!-- Card 1: Barras verticais -->
+          <figure class="stat-card reveal">
+            <figcaption>
+              <p class="stat-card__title">Lixo eletrônico global em aceleração</p>
+              <p class="stat-card__sub">Milhões de toneladas (Mt) geradas por ano · alta de 82% desde 2010</p>
+            </figcaption>
+            <div class="vbars" aria-label="Evolução do lixo eletrônico global: 34 Mt em 2010, 53,6 Mt em 2019, 62 Mt em 2022 e 82 Mt projetados em 2030">
+              <div class="vbars__col">
+                <span class="vbars__val"><span class="count-up" data-count-to="34" data-decimals="0">34</span> Mt</span>
+                <div class="vbars__bar" data-target-height="41" style="height: 41%;"></div>
+              </div>
+              <div class="vbars__col">
+                <span class="vbars__val"><span class="count-up" data-count-to="53.6" data-decimals="1">53,6</span> Mt</span>
+                <div class="vbars__bar" data-target-height="65" style="height: 65%;"></div>
+              </div>
+              <div class="vbars__col">
+                <span class="vbars__val"><span class="count-up" data-count-to="62" data-decimals="0">62</span> Mt</span>
+                <div class="vbars__bar is-now" data-target-height="76" style="height: 76%;"></div>
+              </div>
+              <div class="vbars__col">
+                <span class="vbars__val"><span class="count-up" data-count-to="82" data-decimals="0">82</span> Mt</span>
+                <div class="vbars__bar is-proj" data-target-height="100" style="height: 100%;"></div>
+              </div>
+            </div>
+            <div class="vbars__years"><span>2010</span><span>2019</span><span>2022</span><span>2030*</span></div>
+            <p class="stat-card__source">Fonte: ITU / UNITAR, Global E-waste Monitor 2024 (*projeção para 2030).</p>
+          </figure>
+
+          <!-- Card 2: Waffle Brasil -->
+          <figure class="stat-card reveal">
+            <figcaption>
+              <p class="stat-card__title">No Brasil, apenas ~3 em 100 têm reciclagem formal</p>
+              <p class="stat-card__sub">2,4 milhões de toneladas geradas (~11,4 kg por habitante)</p>
+            </figcaption>
+            <div class="waffle-wrap">
+              <div class="waffle" id="waffleBrazil" aria-hidden="true"></div>
+              <div class="waffle-side">
+                <strong class="waffle-kpi"><span class="count-up" data-count-to="3" data-decimals="0" data-suffix="%">3%</span></strong>
+                <div class="legend">
+                  <span><i class="dot" style="background: var(--green);"></i>Reciclagem formal documentada (~79 mil t)</span>
+                  <span><i class="dot" style="background: var(--paper-3); border: 1px solid var(--line);"></i>Fora do fluxo formal (guardado, lixo comum ou informal)</span>
+                </div>
+              </div>
+            </div>
+            <p class="stat-card__source">Fonte: ITU / UNITAR, Global E-waste Monitor 2024 (perfil Brasil).</p>
+          </figure>
+
+          <!-- Card 3: Data Centers TWh -->
+          <figure class="stat-card reveal">
+            <figcaption>
+              <p class="stat-card__title">A energia invisível da nuvem e da IA</p>
+              <p class="stat-card__sub">Consumo elétrico global de data centers (TWh/ano)</p>
+            </figcaption>
+            <div class="hbars">
+              <div>
+                <div class="hbar__top"><span>2022 · Base histórica</span><strong><span class="count-up" data-count-to="340" data-decimals="0">340</span> TWh</strong></div>
+                <div class="hbar__track"><div class="hbar__fill" data-target-width="36" style="width: 36%;"></div></div>
+              </div>
+              <div>
+                <div class="hbar__top"><span>2024 · ~1,5% da eletricidade mundial</span><strong><span class="count-up" data-count-to="415" data-decimals="0">415</span> TWh</strong></div>
+                <div class="hbar__track"><div class="hbar__fill" data-target-width="44" style="width: 44%;"></div></div>
+              </div>
+              <div>
+                <div class="hbar__top"><span>2026 · Expansão de nuvem e IA*</span><strong><span class="count-up" data-count-to="545" data-decimals="0">545</span> TWh</strong></div>
+                <div class="hbar__track"><div class="hbar__fill" data-target-width="58" style="width: 58%;"></div></div>
+              </div>
+              <div>
+                <div class="hbar__top"><span>2030 · Projeção cenário-base*</span><strong><span class="count-up" data-count-to="945" data-decimals="0">945</span> TWh</strong></div>
+                <div class="hbar__track"><div class="hbar__fill is-warn" data-target-width="100" style="width: 100%;"></div></div>
+              </div>
+            </div>
+            <p class="stat-card__source">Fonte: IEA — Electricity 2024 e Energy and AI (2025) (*cenário-base).</p>
+          </figure>
+
+          <!-- Card 4: Donut Fabricação vs Uso -->
+          <figure class="stat-card reveal">
+            <figcaption>
+              <p class="stat-card__title">Onde nasce a pegada de um notebook</p>
+              <p class="stat-card__sub">A maior parte das emissões acontece antes do primeiro boot</p>
+            </figcaption>
+            <div class="donut-wrap">
+              <div class="donut" id="donutCarbon" data-target="78" aria-hidden="true">
+                <div class="donut__inner"><strong>~<span class="count-up" data-count-to="78" data-decimals="0" data-suffix="%">78%</span></strong></div>
+              </div>
+              <div class="donut-copy">
+                <p>Estudos de Avaliação de Ciclo de Vida mostram que <strong>70% a 80%</strong> da pegada de carbono de notebooks (e até 85%+ em smartphones) vêm da extração mineral e fabricação.</p>
+                <div class="legend">
+                  <span><i class="dot" style="background: var(--amber);"></i>Fabricação e transporte (~78%)</span>
+                  <span><i class="dot" style="background: var(--green);"></i>Uso elétrico e fim de vida (~22%)</span>
+                </div>
+              </div>
+            </div>
+            <p class="stat-card__source">Fonte: ADEME e Fraunhofer IZM (estudos de ACV de dispositivos de TI).</p>
+          </figure>
+        </div>
+
+        <!-- Visualizador proporcional de 200 dispositivos (Canvas 2D) -->
+        <div class="story-panel reveal" aria-labelledby="titulo-viz">
+          <div class="story-stage">
+            <canvas id="storyCanvas" width="600" height="300" aria-label="Visualização proporcional de 200 equipamentos eletrônicos descartados"></canvas>
+            <div class="story-stage__hud" aria-live="polite">
+              <strong id="storyHudCount">200</strong>
+              <span id="storyHudLabel">equipamentos descartados (escala proporcional)</span>
+            </div>
+            <ul class="story-legend" id="storyLegend">
+              <li><i class="dot" style="background: #86E0B3;"></i>Reciclados formalmente</li>
+              <li><i class="dot" style="background: #FF9478;"></i>Fora da reciclagem formal</li>
+              <li><i class="dot" style="background: #F2C96B;"></i>Poupados por extensão de vida útil</li>
+            </ul>
+          </div>
+
+          <div class="story-controls">
+            <p class="eyebrow" style="margin-bottom: 0;">Simulação proporcional · 200 dispositivos</p>
+            <h3 id="titulo-viz">Enxergue a proporção na tela</h3>
+            <p style="font-size: var(--text-sm); color: var(--band-muted);">Cada ponto representa um equipamento em um lote hipotético de 200 aparelhos. Troque de cenário para comparar os dados globais, o Brasil e o impacto do recondicionamento.</p>
+            <div class="story-steps-nav" id="storyStepBtns" role="group" aria-label="Cenários da visualização">
+              <button type="button" class="story-step-btn" data-scene="total" aria-pressed="true">1 · Lote descartado</button>
+              <button type="button" class="story-step-btn" data-scene="world" aria-pressed="false">2 · Mundo (22,3%)</button>
+              <button type="button" class="story-step-btn" data-scene="brazil" aria-pressed="false">3 · Brasil (~3%)</button>
+              <button type="button" class="story-step-btn" data-scene="extend" aria-pressed="false">4 · Com TI Verde</button>
+            </div>
+            <div class="story-narrative" aria-live="polite">
+              <h4 id="storyNarTitle">200 equipamentos chegam ao fim do uso</h4>
+              <p id="storyNarText">Computadores, celulares, fontes, cabos e monitores acumulam metais preciosos (cobre, ouro, prata) e elementos tóxicos (chumbo, cádmio, mercúrio). Selecione os botões acima para ver qual destino eles costumam ter.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 02. SIMULADOR DO LABORATÓRIO DE INFORMÁTICA ===== -->
+    <section class="section slide" id="simulador" aria-labelledby="titulo-simulador" data-step data-title="Laboratório">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Capítulo 02 · Perto de nós</p>
+          <h2 id="titulo-simulador">E no nosso laboratório de informática?</h2>
+          <p class="lead">Ajuste a quantidade de computadores, o tempo em que ficam ociosos e ative práticas reais de TI Verde para estimar a economia anual de energia, dinheiro e emissões.</p>
+        </div>
+
+        <div class="sim-grid">
+          <div class="sim-card">
+            <div class="range-field">
+              <label class="range-field__head" for="pcCount">
+                <span>Computadores no laboratório</span>
+                <output id="pcCountOut" for="pcCount">30 PCs</output>
+              </label>
+              <input type="range" id="pcCount" min="10" max="50" step="2" value="30">
+            </div>
+
+            <div class="range-field">
+              <label class="range-field__head" for="idleHours">
+                <span>Horas ociosos ligados por dia letivo</span>
+                <output id="idleHoursOut" for="idleHours">4 h/dia</output>
+              </label>
+              <input type="range" id="idleHours" min="0" max="8" step="1" value="4">
+            </div>
+
+            <fieldset class="sim-toggles">
+              <legend>Ações de TI Verde aplicadas</legend>
+
+              <label class="toggle-item">
+                <input type="checkbox" id="optSleep">
+                <div>
+                  <strong>Suspensão automática após 15 min</strong>
+                  <span>Corta o consumo ocioso de ~65 W para ~3 W sem perder a aula.</span>
+                </div>
+              </label>
+
+              <label class="toggle-item">
+                <input type="checkbox" id="optStrip">
+                <div>
+                  <strong>Desligar réguas ao fim do turno</strong>
+                  <span>Elimina o consumo fantasma (standby) de ~5 W por 16 h diárias.</span>
+                </div>
+              </label>
+
+              <label class="toggle-item">
+                <input type="checkbox" id="optUpgrade">
+                <div>
+                  <strong>Upgrade de SSD + RAM em vez de trocar tudo</strong>
+                  <span>Estende a vida útil de 4 para 7 anos e evita carbono de fabricação.</span>
+                </div>
+              </label>
+
+              <label class="toggle-item">
+                <input type="checkbox" id="optThin">
+                <div>
+                  <strong>Migrar desktops antigos para Mini-PCs / Thin Clients</strong>
+                  <span>Reduz a potência ativa média por bancada de ~115 W para ~38 W.</span>
+                </div>
+              </label>
+
+              <label class="toggle-item">
+                <input type="checkbox" id="optPaperless">
+                <div>
+                  <strong>Atividades digitais e impressão frente e verso</strong>
+                  <span>Reduz o uso de papel e cartuchos de toner ao longo do ano letivo.</span>
+                </div>
+              </label>
+            </fieldset>
+          </div>
+
+          <div class="sim-card">
+            <div class="lab-room" id="labRoom" aria-hidden="true"></div>
+
+            <div class="sim-kpis" aria-live="polite">
+              <div class="sim-kpi">
+                <strong id="kpiKwh">0 kWh</strong>
+                <span>Energia economizada / ano</span>
+              </div>
+              <div class="sim-kpi">
+                <strong id="kpiMoney">R$ 0</strong>
+                <span>Economia financeira estimada / ano</span>
+              </div>
+              <div class="sim-kpi">
+                <strong id="kpiCo2">0 kg</strong>
+                <span>CO₂e evitados / ano (uso + fabricação)</span>
+              </div>
+              <div class="sim-kpi">
+                <strong id="kpiSavedPcs">0 PCs</strong>
+                <span>Máquinas salvas do descarte em 5 anos</span>
+              </div>
+            </div>
+
+            <div class="sim-reduction">
+              <div class="sim-reduction__top">
+                <span>Redução no consumo elétrico do laboratório</span>
+                <span class="mono" id="simReductionPct">0%</span>
+              </div>
+              <div class="sim-reduction__bar"><span id="simReductionFill"></span></div>
+            </div>
+
+            <p class="sim-sentence" id="simSentence" aria-live="polite">
+              Atualmente, um laboratório de <strong>30 computadores</strong> sem gestão de energia consome cerca de <strong>4.800 kWh/ano</strong> em 200 dias letivos. Ative as práticas ao lado para ver o impacto.
+            </p>
+
+            <div class="mission-box" id="simMission">
+              <p class="mission-box__tag">Missão do laboratório</p>
+              <p class="mission-box__goal">Corte pelo menos 50% do consumo elétrico anual e estenda a vida útil das máquinas.</p>
+              <p class="mission-box__status" id="simMissionStatus" aria-live="polite">Ative ações de energia e o upgrade de SSD + RAM para concluir.</p>
+            </div>
+
+            <p class="source-note">
+              <strong>Nota metodológica:</strong> Estimativa didática com base em 200 dias letivos/ano, 4 h ativas/dia, tarifa de referência R$&nbsp;0,85/kWh e fator médio da rede elétrica brasileira (0,085 kg CO₂/kWh, referência SIN/MCTI), somado à fração anualizada de carbono incorporado (~32 kg CO₂e/PC/ano) quando a vida útil passa de 4 para 7 anos. Não representa medição elétrica direta da EETEPA Vilhena Alves.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 03. ENGENHARIA: PUE & 4 FRENTES TÉCNICAS ===== -->
+    <section class="section section--tint slide" id="datacenter" aria-labelledby="titulo-datacenter" data-step data-title="Técnicas">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Capítulo 03 · Engenharia da TI Verde</p>
+          <h2 id="titulo-datacenter">Eficiência se mede — do rack ao código-fonte.</h2>
+          <p class="lead">Na informática profissional, sustentabilidade não é slogan: usa métricas objetivas como o <strong>PUE</strong>, consolidação por virtualização e desenvolvimento de software enxuto.</p>
+        </div>
+
+        <!-- Raio-X interativo do PUE -->
+        <div class="pue-box reveal">
+          <div class="pue-grid">
+            <div>
+              <p class="eyebrow" style="margin-bottom: 6px;">Métrica-chave de data centers</p>
+              <h3>O que é PUE (Power Usage Effectiveness)?</h3>
+              <p style="margin-top: 8px; font-size: var(--text-sm); color: var(--ink-2);">
+                <code>PUE = Energia Total da Instalação ÷ Energia dos Equipamentos de TI</code>. Quanto mais perto de <strong>1,00</strong>, menos energia é perdida em refrigeração, nobreaks antigos e iluminação.
+              </p>
+              <div class="pue-presets" id="puePresets" role="group" aria-label="Comparar cenários de PUE">
+                <button type="button" data-pue="2.10" aria-pressed="false">Sala antiga (2,10)</button>
+                <button type="button" data-pue="1.56" aria-pressed="true">Média global 2024 (1,56)</button>
+                <button type="button" data-pue="1.25" aria-pressed="false">Otimizado (1,25)</button>
+                <button type="button" data-pue="1.10" aria-pressed="false">Hyperscale (1,10)</button>
+              </div>
+            </div>
+
+            <div class="pue-meter" aria-live="polite">
+              <div class="pue-score">
+                <strong id="pueValue">PUE 1,56</strong>
+                <span id="pueLabel">Média global · Uptime Institute 2024</span>
+              </div>
+              <div class="pue-stack" role="img" aria-label="Distribuição entre energia útil de TI e refrigeração/perdas">
+                <div class="pue-stack__it" id="pueItBar" style="width: 64%;">TI: 64%</div>
+                <div class="pue-stack__over" id="pueOverBar" style="width: 36%;">Apoio: 36%</div>
+              </div>
+              <p class="pue-explain" id="pueExplain">
+                Para cada 1,00 kWh usado pelos servidores, outros <strong>0,56 kWh</strong> são gastos em ar-condicionado e perdas elétricas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Frentes Técnicas em abas acessíveis -->
+        <div class="tablist" id="techTabs" role="tablist" aria-label="Quatro frentes técnicas da TI Verde">
+          <button type="button" role="tab" id="tab-hardware" aria-controls="panel-hardware" aria-selected="true">1 · Hardware &amp; Ciclo</button>
+          <button type="button" role="tab" id="tab-virt" aria-controls="panel-virt" aria-selected="false" tabindex="-1">2 · Virtualização</button>
+          <button type="button" role="tab" id="tab-code" aria-controls="panel-code" aria-selected="false" tabindex="-1">3 · Green Coding</button>
+          <button type="button" role="tab" id="tab-cooling" aria-controls="panel-cooling" aria-selected="false" tabindex="-1">4 · Energia &amp; Clima</button>
+          <span class="tab-progress" id="techTabProgress" hidden>Frentes exploradas: 1 de 4</span>
+        </div>
+
+        <article class="tech-panel" role="tabpanel" id="panel-hardware" aria-labelledby="tab-hardware" tabindex="0">
+          <div>
+            <h3>Hardware durável e manutenção preventiva</h3>
+            <p>Trocar um computador inteiro porque o sistema ficou lento gera lixo eletrônico desnecessário. Na maioria dos casos escolares e corporativos, gargalos de disco e memória têm solução simples e barata.</p>
+            <ul class="tech-list">
+              <li><strong>Fontes com selo 80 Plus</strong>Convertem mais energia elétrica em trabalho útil e desperdiçam menos calor na fonte.</li>
+              <li><strong>Certificações EPEAT e Energy Star</strong>Indicam menor uso de substâncias perigosas, facilidade de reparo e modos de baixo consumo.</li>
+              <li><strong>Recondicionamento com Linux leve</strong>Dá sobrevida a máquinas de 6 a 10 anos para navegação, edição de texto e aulas de programação.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>A regra dos 5 Rs aplicada à Informática</h3>
+            <ul class="tech-list">
+              <li><strong>1. Repensar</strong>Precisamos mesmo de um aparelho novo ou uma atualização de software/SSD resolve?</li>
+              <li><strong>2. Reduzir</strong>Evitar periféricos duplicados, cabos sobrando e impressões em papel desnecessárias.</li>
+              <li><strong>3. Reutilizar</strong>Doar equipamentos funcionais para escolas, projetos sociais ou laboratórios comunitários.</li>
+              <li><strong>4. Reparar</strong>Trocar baterias, telas, ventoinhas e pasta térmica para evitar superaquecimento.</li>
+              <li><strong>5. Reciclar</strong>Encaminhar o que não tem mais conserto para Pontos de Entrega Voluntária (PEVs).</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="tech-panel" role="tabpanel" id="panel-virt" aria-labelledby="tab-virt" tabindex="0">
+          <div>
+            <h3>Consolidação de servidores por virtualização</h3>
+            <p>Servidores físicos dedicados a uma única aplicação costumam operar com apenas 10% a 20% da CPU ocupada, mas ainda puxam energia constante da tomada e aquecem a sala.</p>
+            <p>Com hypervisors e contêineres, múltiplas cargas de trabalho compartilham o mesmo hardware físico com segurança e isolamento — desligando máquinas ociosas.</p>
+            <div style="margin-top: 16px;">
+              <button type="button" class="btn" id="virtToggle">Simular consolidação em 1 host</button>
+            </div>
+          </div>
+          <div class="virt-demo">
+            <strong style="font-size: var(--text-sm);">Demonstração: 6 serviços em uma escola/empresa</strong>
+            <div class="virt-racks" id="virtRacks">
+              <div class="virt-server"><strong>SRV-01</strong><br>Web · 12% CPU</div>
+              <div class="virt-server"><strong>SRV-02</strong><br>Banco · 18% CPU</div>
+              <div class="virt-server"><strong>SRV-03</strong><br>Arquivos · 10% CPU</div>
+              <div class="virt-server"><strong>SRV-04</strong><br>Backup · 8% CPU</div>
+              <div class="virt-server"><strong>SRV-05</strong><br>DNS/DHCP · 6% CPU</div>
+              <div class="virt-server"><strong>SRV-06</strong><br>Moodle · 16% CPU</div>
+            </div>
+            <p id="virtSummary" aria-live="polite" style="font-size: var(--text-xs); color: var(--ink-2);">
+              <strong>Antes:</strong> 6 servidores físicos ligados 24h (~1.200 W totais) com uso médio de apenas 12% por máquina.
+            </p>
+          </div>
+        </article>
+
+        <article class="tech-panel" role="tabpanel" id="panel-code" aria-labelledby="tab-code" tabindex="0">
+          <div>
+            <h3>Green Coding: software enxuto consome menos bateria e rede</h3>
+            <p>Cada megabyte transferido trafega por roteadores, switches, antenas e servidores. Código mal otimizado aquece celulares, drena baterias e multiplica custos em nuvem.</p>
+            <ul class="tech-list">
+              <li><strong>Páginas leves e sem dependências inúteis</strong>Este próprio site usa HTML, CSS e JavaScript nativos, sem bibliotecas gigantes nem trackers pesados.</li>
+              <li><strong>Imagens otimizadas e cache</strong>Usar SVG/WebP e carregamento sob demanda (<code>loading="lazy"</code>) reduz tráfego repetido.</li>
+              <li><strong>Algoritmos e bancos eficientes</strong>Consultas SQL indexadas e ausência de loops desnecessários economizam milhares de ciclos de CPU.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Exemplo prático: peso de uma página educativa</h3>
+            <ul class="tech-list">
+              <li><strong>Site inchado (frameworks + vídeos automáticos)</strong>Pode ultrapassar 5 MB a 12 MB por acesso, exigindo alto processamento no celular do aluno.</li>
+              <li><strong>Site enxuto (abordagem deste projeto)</strong>Pesa menos de 100 KB no carregamento inicial, abre rápido em 3G/4G e funciona até em computadores antigos.</li>
+              <li><strong>Boas práticas para desenvolvedores</strong>Remover bibliotecas mortas, evitar polling constante (preferir eventos) e desligar ambientes de teste fora do expediente.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="tech-panel" role="tabpanel" id="panel-cooling" aria-labelledby="tab-cooling" tabindex="0">
+          <div>
+            <h3>Refrigeração inteligente e matriz limpa</h3>
+            <p>Em data centers, manter racks refrigerados pode responder por 30% a 40% da conta elétrica. Além da eletricidade, sistemas evaporativos consomem grandes volumes de água doce.</p>
+            <ul class="tech-list">
+              <li><strong>Corredor quente / corredor frio</strong>Organizar racks frente-a-frente evita que o ar quente exaurido se misture com o ar frio de entrada.</li>
+              <li><strong>Temperatura calibrada (22 °C a 25 °C)</strong>Evitar "congelar" a sala de TI a 16 °C economiza energia sem comprometer servidores modernos.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>A oportunidade do Brasil e da Amazônia</h3>
+            <ul class="tech-list">
+              <li><strong>Matriz elétrica predominantemente renovável</strong>O Brasil possui forte participação hidrelétrica, solar e eólica, gerando menos CO₂ por kWh do que redes baseadas em carvão.</li>
+              <li><strong>Clima quente exige atenção redobrada</strong>Em cidades quentes e úmidas como Belém (PA), vedação de salas, limpeza periódica de filtros/coolers e desligamento programado fazem diferença imediata no consumo.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 04. LEGISLAÇÃO & LOGÍSTICA REVERSA ===== -->
+    <section class="section section--band slide" id="legislacao" aria-labelledby="titulo-legislacao" data-step data-title="Lei">
+      <div class="container">
+        <div class="law-grid">
+          <div>
+            <p class="eyebrow">Capítulo 04 · Legislação brasileira</p>
+            <h2 id="titulo-legislacao" class="visually-hidden">Legislação e Logística Reversa no Brasil</h2>
+            <p class="law-statement">Lixo eletrônico não é lixo comum. No Brasil, o descarte correto é lei.</p>
+            <p class="lead" style="margin-top: 16px;">
+              Equipamentos descartados em lixões ou terrenos baldios liberam metais pesados no solo e nos lençóis freáticos. A legislação brasileira divide a responsabilidade entre quem fabrica, quem vende e quem usa.
+            </p>
+
+            <div class="quick-check" id="lawQuick">
+              <p class="quick-check__q">Pergunta rápida: de quem é a responsabilidade pelo descarte correto de eletrônicos segundo a lei brasileira?</p>
+              <div class="quick-check__opts">
+                <button type="button" data-correct="0">Apenas do consumidor que comprou o aparelho.</button>
+                <button type="button" data-correct="1">Compartilhada: fabricantes, importadores, comércio, governo e consumidores.</button>
+                <button type="button" data-correct="0">Apenas da prefeitura, por meio da coleta de lixo comum.</button>
+              </div>
+              <p class="quick-check__fb" id="lawQuickFb" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div>
+            <div class="law-cards">
+              <article class="law-card">
+                <h3>PNRS — Lei nº 12.305/2010</h3>
+                <p class="law-card__sub">Política Nacional de Resíduos Sólidos</p>
+                <p>Institui a <strong>responsabilidade compartilhada</strong> pelo ciclo de vida dos produtos e torna obrigatória a estruturação de sistemas de <strong>logística reversa</strong> para produtos eletroeletrônicos e seus componentes.</p>
+              </article>
+
+              <article class="law-card">
+                <h3>Decreto nº 10.240/2020</h3>
+                <p class="law-card__sub">Logística Reversa de Eletroeletrônicos</p>
+                <p>Regulamenta a coleta de eletroeletrônicos domésticos com metas anuais crescentes e instalação de <strong>Pontos de Entrega Voluntária (PEVs)</strong> operados por entidades gestoras sem fins lucrativos, como <strong>Green Eletron</strong> e <strong>ABREE</strong>.</p>
+              </article>
+
+              <article class="law-card">
+                <h3>Onde descartar em Belém e no Brasil?</h3>
+                <p class="law-card__sub">Consulta pública e gratuita de PEVs</p>
+                <p>Antes de jogar fora pilhas, cabos, celulares ou placas queimadas, consulte o ponto mais próximo pelo CEP nos mapas oficiais das gestoras e apague sempre seus dados pessoais antes da entrega.</p>
+              </article>
+            </div>
+
+            <div class="law-links">
+              <a href="https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2010/lei/l12305.htm" target="_blank" rel="noopener noreferrer">Lei nº 12.305/2010 (Planalto) ↗</a>
+              <a href="https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2020/decreto/d10240.htm" target="_blank" rel="noopener noreferrer">Decreto nº 10.240/2020 ↗</a>
+              <a href="https://greeneletron.org.br/localizador" target="_blank" rel="noopener noreferrer">Localizador Green Eletron ↗</a>
+              <a href="https://abree.org.br/pontos-de-recebimento" target="_blank" rel="noopener noreferrer">Pontos de recebimento ABREE ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 05. TRIAGEM INTERATIVA DO E-LIXO ===== -->
+    <section class="section slide" id="triagem" aria-labelledby="titulo-triagem" data-step data-title="Triagem">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Capítulo 05 · Mão na massa</p>
+          <h2 id="titulo-triagem">Triagem do e-lixo: para onde vai cada item?</h2>
+          <p class="lead">Nem todo equipamento velho precisa virar sucata — e nem todo resíduo pode ir para o lixo comum. Escolha o melhor destino sustentável para cada situação.</p>
+          <p class="mono" id="triageScore" aria-live="polite" style="margin-top: 12px; color: var(--green); font-weight: 700; font-size: var(--text-sm);">0 de 6 itens classificados corretamente</p>
+        </div>
+
+        <div class="triage-grid" id="triageGrid">
+          <article class="triage-card" data-answer="upgrade">
+            <div class="triage-card__head">
+              <h3>Notebook de 2019 lento para ligar</h3>
+              <span class="triage-card__num">01/06</span>
+            </div>
+            <p class="triage-card__desc">Ainda usa HD mecânico e 4 GB de RAM, mas a tela, o teclado e a bateria funcionam bem.</p>
+            <div class="triage-opts">
+              <button type="button" data-choice="reuse">Reutilizar / Doar</button>
+              <button type="button" data-choice="upgrade">Manutenção / Upgrade</button>
+              <button type="button" data-choice="pev">Logística Reversa (PEV)</button>
+            </div>
+            <p class="triage-fb"><strong>Manutenção / Upgrade:</strong> trocar o HD por um SSD e ampliar a RAM devolve anos de uso e evita cerca de 75% das emissões ligadas à fabricação de um notebook novo.</p>
+          </article>
+
+          <article class="triage-card" data-answer="pev">
+            <div class="triage-card__head">
+              <h3>Bateria inchada de celular ou nobreak</h3>
+              <span class="triage-card__num">02/06</span>
+            </div>
+            <p class="triage-card__desc">Está estufada e não segura carga. Apresenta risco químico e de superaquecimento.</p>
+            <div class="triage-opts">
+              <button type="button" data-choice="reuse">Reutilizar / Doar</button>
+              <button type="button" data-choice="upgrade">Manutenção / Upgrade</button>
+              <button type="button" data-choice="pev">Logística Reversa (PEV)</button>
+            </div>
+            <p class="triage-fb"><strong>Logística Reversa (PEV):</strong> baterias contêm lítio, chumbo ou outros compostos tóxicos e inflamáveis. Nunca perfure nem jogue no lixo doméstico; leve a um ponto de coleta especializado.</p>
+          </article>
+
+          <article class="triage-card" data-answer="reuse">
+            <div class="triage-card__head">
+              <h3>Monitor LED em perfeito estado após troca</h3>
+              <span class="triage-card__num">03/06</span>
+            </div>
+            <p class="triage-card__desc">Um setor substituiu monitores de 19" por telas maiores, mas os antigos funcionam perfeitamente.</p>
+            <div class="triage-opts">
+              <button type="button" data-choice="reuse">Reutilizar / Doar</button>
+              <button type="button" data-choice="upgrade">Manutenção / Upgrade</button>
+              <button type="button" data-choice="pev">Logística Reversa (PEV)</button>
+            </div>
+            <p class="triage-fb"><strong>Reutilizar / Doar:</strong> na hierarquia de resíduos, manter um equipamento funcional em uso (reaproveitamento interno ou doação) sempre vem antes de reciclar.</p>
+          </article>
+
+          <article class="triage-card" data-answer="pev">
+            <div class="triage-card__head">
+              <h3>Placa-mãe queimada e fonte com defeito</h3>
+              <span class="triage-card__num">04/06</span>
+            </div>
+            <p class="triage-card__desc">Componentes com curto-circuito confirmado em bancada e sem viabilidade técnica de reparo.</p>
+            <div class="triage-opts">
+              <button type="button" data-choice="reuse">Reutilizar / Doar</button>
+              <button type="button" data-choice="upgrade">Manutenção / Upgrade</button>
+              <button type="button" data-choice="pev">Logística Reversa (PEV)</button>
+            </div>
+            <p class="triage-fb"><strong>Logística Reversa (PEV):</strong> placas de circuito impresso reúnem cobre, ouro, prata e estanho recuperáveis pela mineração urbana, além de substâncias que exigem descarte controlado.</p>
+          </article>
+
+          <article class="triage-card" data-answer="upgrade">
+            <div class="triage-card__head">
+              <h3>Desktop travando por superaquecimento</h3>
+              <span class="triage-card__num">05/06</span>
+            </div>
+            <p class="triage-card__desc">O computador do laboratório desliga sozinho após 20 minutos; cooler coberto de poeira e pasta térmica seca.</p>
+            <div class="triage-opts">
+              <button type="button" data-choice="reuse">Reutilizar / Doar</button>
+              <button type="button" data-choice="upgrade">Manutenção / Upgrade</button>
+              <button type="button" data-choice="pev">Logística Reversa (PEV)</button>
+            </div>
+            <p class="triage-fb"><strong>Manutenção / Upgrade:</strong> limpeza preventiva e troca de pasta térmica reduzem temperatura, evitam desperdício de energia das ventoinhas e impedem a queima prematura do processador.</p>
+          </article>
+
+          <article class="triage-card" data-answer="pev">
+            <div class="triage-card__head">
+              <h3>Cabos partidos, pilhas e cartuchos vazios</h3>
+              <span class="triage-card__num">06/06</span>
+            </div>
+            <p class="triage-card__desc">Fios desencapados sem reparo seguro, pilhas descarregadas e toners esgotados acumulados na gaveta.</p>
+            <div class="triage-opts">
+              <button type="button" data-choice="reuse">Reutilizar / Doar</button>
+              <button type="button" data-choice="upgrade">Manutenção / Upgrade</button>
+              <button type="button" data-choice="pev">Logística Reversa (PEV)</button>
+            </div>
+            <p class="triage-fb"><strong>Logística Reversa (PEV):</strong> pequenos acessórios são os que mais vão parar no lixo comum. Junte em uma caixa e deposite em PEVs de supermercados, lojas ou pontos da Green Eletron/ABREE.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 06. COMO AGIR HOJE (ABAS POR PERFIL) ===== -->
+    <section class="section section--tint slide" id="agir" aria-labelledby="titulo-agir" data-step data-title="Como agir">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Capítulo 06 · Atitude prática</p>
+          <h2 id="titulo-agir">O que podemos fazer hoje?</h2>
+          <p class="lead">Escolha seu perfil para ver ações imediatas que reduzem consumo de energia, prolongam a vida dos dispositivos e evitam lixo eletrônico.</p>
+        </div>
+
+        <div class="tablist" id="actTabs" role="tablist" aria-label="Escolher perfil de atuação">
+          <button type="button" role="tab" id="tab-estudante" aria-controls="painel-estudante" aria-selected="true">Como estudante</button>
+          <button type="button" role="tab" id="tab-escola" aria-controls="painel-escola" aria-selected="false" tabindex="-1">No laboratório / escola</button>
+          <button type="button" role="tab" id="tab-tecnico" aria-controls="painel-tecnico" aria-selected="false" tabindex="-1">Como futuro técnico em TI</button>
+        </div>
+
+        <div role="tabpanel" id="painel-estudante" aria-labelledby="tab-estudante" tabindex="0">
+          <ol class="tips-grid">
+            <li class="tip-card">
+              <span class="tip-card__num">01</span>
+              <h4>Configure a economia de energia</h4>
+              <p>Ative o desligamento da tela após 5 min e suspensão após 15 min. Reduza o brilho do monitor e tire carregadores ociosos da tomada.</p>
+            </li>
+            <li class="tip-card">
+              <span class="tip-card__num">02</span>
+              <h4>Conserte antes de trocar</h4>
+              <p>Antes de substituir celular ou notebook, avalie troca de bateria, limpeza, SSD ou mais RAM. Cada ano extra de uso reduz muito sua pegada.</p>
+            </li>
+            <li class="tip-card">
+              <span class="tip-card__num">03</span>
+              <h4>Faça limpeza digital e descarte certo</h4>
+              <p>Apague backups duplicados e spam na nuvem; leve cabos, pilhas e aparelhos quebrados a um PEV após formatar seus dados pessoais.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div role="tabpanel" id="painel-escola" aria-labelledby="tab-escola" tabindex="0">
+          <ol class="tips-grid">
+            <li class="tip-card">
+              <span class="tip-card__num">01</span>
+              <h4>Rotina de encerramento de turno</h4>
+              <p>Desligar monitores, PCs e réguas de energia ao final das aulas elimina o consumo fantasma durante a noite e os fins de semana.</p>
+            </li>
+            <li class="tip-card">
+              <span class="tip-card__num">02</span>
+              <h4>Recondicionamento pedagógico</h4>
+              <p>Aulas práticas de manutenção podem recuperar computadores antigos com SSD e sistemas leves, unindo aprendizado técnico e economia.</p>
+            </li>
+            <li class="tip-card">
+              <span class="tip-card__num">03</span>
+              <h4>Ponto de coleta e entrega digital</h4>
+              <p>Organizar caixas de coleta de pequenos eletrônicos para envio a PEVs parceiros e priorizar envio digital de trabalhos frente à impressão.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div role="tabpanel" id="painel-tecnico" aria-labelledby="tab-tecnico" tabindex="0">
+          <ol class="tips-grid">
+            <li class="tip-card">
+              <span class="tip-card__num">01</span>
+              <h4>Dimensione sem exageros</h4>
+              <p>Evite servidores superdimensionados. Consolide serviços via virtualização/contêineres e monitore consumo e temperatura continuamente.</p>
+            </li>
+            <li class="tip-card">
+              <span class="tip-card__num">02</span>
+              <h4>Especifique hardware eficiente</h4>
+              <p>Priorize fontes 80 Plus, equipamentos com peças substituíveis (direito ao reparo) e certificações Energy Star / EPEAT nas compras.</p>
+            </li>
+            <li class="tip-card">
+              <span class="tip-card__num">03</span>
+              <h4>Escreva código e redes leves</h4>
+              <p>Otimize consultas, imagens e cache, desligue ambientes de homologação ociosos e documente o descarte certificado de ativos de TI.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="school-band reveal" id="circuito">
+          <div class="school-band__copy">
+            <p class="eyebrow" style="color: var(--band-gold); margin-bottom: 4px;">Circuito Integrador 2026 · Feira de Projetos Integradores</p>
+            <p class="school-band__title">EETEPA Vilhena Alves · SECTET / Governo do Pará</p>
+            <p class="school-band__desc">A Feira de Projeto Integrador conecta estudantes e toda a comunidade, incentivando a troca de conhecimentos, a participação ativa, a cultura e o aprendizado compartilhado. Toda a comunidade está convidada.</p>
+            <div class="school-chips">
+              <div class="school-chip"><span>Data</span><strong>26/11/2026</strong></div>
+              <div class="school-chip"><span>Horário</span><strong>Início às 19h30</strong></div>
+              <div class="school-chip"><span>Turma</span><strong>P2 Informática Subsequente 2026</strong></div>
+              <div class="school-chip"><span>Organização</span><strong>Curso Técnico em Eventos</strong></div>
+            </div>
+          </div>
+          <figure class="poster-card">
+            <button type="button" class="poster-btn" id="posterOpen" aria-label="Ampliar cartaz oficial do Circuito Integrador 2026">
+              <img src="assets/images/circuito-integrador-2026.jpg" alt="Cartaz oficial do Circuito Integrador 2026 da EETEPA Vilhena Alves, dia 26/11/2026 com início às 19h30, apresentando T.I Verde — Tecnologia, Inovação e Sustentabilidade e demais cursos técnicos." width="1024" height="1024" loading="lazy">
+            </button>
+            <figcaption>Cartaz oficial do Circuito Integrador 2026 · toque para ampliar</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 07. DESAFIO RELÂMPAGO & PLACAR DA MOSTRA ===== -->
+    <section class="section slide" id="desafio" aria-labelledby="titulo-desafio" data-step data-title="Desafio">
+      <div class="container quiz-grid">
+        <div>
+          <p class="eyebrow">Capítulo 07 · Desafio relâmpago</p>
+          <h2 id="titulo-desafio">Você aplicaria TI Verde na prática?</h2>
+          <p class="lead" style="margin-top: 14px;">Oito perguntas rápidas, 20 segundos cada. Responda rápido (ou use as teclas <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd>) para multiplicar pontos em sequência.</p>
+
+          <div class="ranking" id="ranking" hidden>
+            <div class="ranking__head">
+              <h3>Placar da mostra</h3>
+              <label style="font-size: var(--text-xs); display: inline-flex; align-items: center; gap: 6px; cursor: pointer;">
+                <input type="checkbox" id="rankMask"> Mascarar apelidos
+              </label>
+            </div>
+            <ol class="ranking__list" id="rankList"></ol>
+            <p class="ranking__note">O placar fica salvo apenas neste navegador. Use um apelido curto, sem nome completo.</p>
+          </div>
+        </div>
+
+        <div class="quiz-box" id="quiz">
+          <noscript><p>O desafio interativo precisa de JavaScript. Todas as informações respondidas nele estão disponíveis nos capítulos acima.</p></noscript>
+
+          <div class="quiz-start" id="quizStart" hidden>
+            <p class="quiz-big">8 perguntas</p>
+            <p style="color: var(--ink-2); font-size: var(--text-sm);">Tudo o que cai aqui apareceu nos capítulos anteriores: lixo eletrônico, ciclo de vida, PUE, virtualização, PNRS e triagem.</p>
+            <button type="button" class="btn" id="quizBegin">Começar o desafio ⚡</button>
+          </div>
+
+          <div class="quiz-play" id="quizPlay" hidden>
+            <div class="quiz-top">
+              <span id="quizCount">Pergunta 1 de 8</span>
+              <span class="quiz-streak" id="quizStreak" aria-live="polite"></span>
+              <span class="quiz-points"><strong id="quizPoints">0</strong> pts</span>
+            </div>
+            <div class="quiz-timer" aria-hidden="true"><span id="quizTimer"></span></div>
+            <p class="quiz-question" id="quizQuestion"></p>
+            <div class="quiz-opts" id="quizOpts"></div>
+            <p class="quiz-fb" id="quizFb" aria-live="polite"></p>
+            <button type="button" class="btn" id="quizNext" hidden>Próxima pergunta →</button>
+          </div>
+
+          <div class="quiz-end" id="quizEnd" hidden>
+            <p class="quiz-big" id="quizFinal">0 pontos</p>
+            <p id="quizSummary" style="color: var(--ink-2);"></p>
+            <form class="quiz-save" id="quizSave">
+              <label for="quizNick">Salve seu apelido no placar local</label>
+              <div class="quiz-save__row">
+                <input id="quizNick" name="apelido" maxlength="16" autocomplete="off" placeholder="Ex.: P2_EcoDev" required>
+                <button type="submit" class="btn">Salvar</button>
+              </div>
+            </form>
+            <button type="button" class="btn btn--quiet" id="quizAgain">Jogar novamente</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 08. TURMA P2 & RESUMO DA VISITA ===== -->
+    <section class="section section--tint slide" id="turma" aria-labelledby="titulo-turma" data-step data-title="Turma P2">
+      <div class="container team-grid">
+        <div>
+          <p class="eyebrow">Capítulo 08 · Circuito Integrador 2026</p>
+          <h2 id="titulo-turma">Informática técnica a serviço de um futuro sustentável.</h2>
+          <p class="lead" style="margin-top: 14px;">Projeto <strong>T.I Verde — Tecnologia, Inovação e Sustentabilidade</strong> desenvolvido pela <strong>turma P2 de Informática Subsequente 2026 da EETEPA Vilhena Alves</strong> para o Circuito Integrador 2026 (26/11/2026, às 19h30), com código web enxuto (HTML, CSS e JavaScript nativos).</p>
+
+          <div class="final-card" id="finalCard" hidden>
+            <p class="final-card__label">Seu resultado nesta visita</p>
+            <p class="final-card__xp"><strong id="finalXp">0</strong> XP · <span id="finalLevel">Curioso Digital</span></p>
+            <p class="final-card__badges" id="finalBadges">0 de 10 conquistas desbloqueadas</p>
+            <div class="final-card__actions">
+              <button type="button" class="btn btn--quiet" id="finalOpen">Ver conquistas</button>
+              <button type="button" class="btn" id="finalReset">Novo visitante</button>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p style="font-size: var(--text-sm); color: var(--muted);">Experiências interativas incluídas nesta página:</p>
+          <ul class="exp-list">
+            <li>Panorama em 4 gráficos reais</li>
+            <li>Visualizador de 200 pontos</li>
+            <li>Simulador do laboratório P2</li>
+            <li>Raio-X interativo de PUE</li>
+            <li>Consolidação de servidores</li>
+            <li>Triagem do lixo eletrônico</li>
+            <li>Guia prático por perfil</li>
+            <li>Desafio relâmpago + placar</li>
+          </ul>
+          <p class="source-note">Progresso, preferências de acessibilidade e placar ficam armazenados apenas no navegador local (<code>localStorage</code>). Nenhum dado pessoal é coletado ou enviado a servidores externos.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== RODAPÉ ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__mark">TI Verde · EETEPA Vilhena Alves</p>
+          <p class="footer__desc">Projeto educativo da turma P2 de Informática Subsequente sobre computação sustentável, eficiência energética e descarte responsável de eletroeletrônicos.</p>
+        </div>
+
+        <div class="footer__col">
+          <h3>Fontes de dados</h3>
+          <ul class="footer__links">
+            <li><a href="https://ewastemonitor.info/the-global-e-waste-monitor-2024/" target="_blank" rel="noopener noreferrer">Global E-waste Monitor 2024 (ITU/UNITAR)</a></li>
+            <li><a href="https://www.iea.org/reports/energy-and-ai" target="_blank" rel="noopener noreferrer">IEA — Energy and AI / Data Centres</a></li>
+            <li><a href="https://uptimeinstitute.com/resources/research-and-reports" target="_blank" rel="noopener noreferrer">Uptime Institute — PUE Survey</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3>Leis, PEVs e código</h3>
+          <ul class="footer__links">
+            <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2010/lei/l12305.htm" target="_blank" rel="noopener noreferrer">PNRS — Lei nº 12.305/2010</a></li>
+            <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2020/decreto/d10240.htm" target="_blank" rel="noopener noreferrer">Decreto nº 10.240/2020</a></li>
+            <li><a href="https://greeneletron.org.br/localizador" target="_blank" rel="noopener noreferrer">Pontos de coleta Green Eletron</a></li>
+            <li><a href="https://github.com/albertomateus9/TI_Verde" target="_blank" rel="noopener noreferrer">Repositório no GitHub ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>Turma P2 de Informática Subsequente 2026 · EETEPA Vilhena Alves · Circuito Integrador 2026 (26/11/2026, 19h30)</span>
+        <span>Publicado via GitHub Pages · HTML, CSS e JS nativos</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox do cartaz oficial -->
+  <dialog class="poster-dialog" id="posterDialog" aria-label="Cartaz oficial do Circuito Integrador 2026 ampliado">
+    <div class="poster-dialog__bar">
+      <strong>Circuito Integrador 2026 · 26/11/2026 às 19h30</strong>
+      <button type="button" class="conquistas__close" id="posterClose" aria-label="Fechar cartaz ampliado">✕</button>
+    </div>
+    <img src="assets/images/circuito-integrador-2026.jpg" alt="Cartaz oficial do Circuito Integrador 2026 da EETEPA Vilhena Alves" width="1024" height="1024">
+  </dialog>
+
+  <!-- Navegação de slides (telas largas e modo apresentação) -->
+  <nav class="slidenav" id="slideNav" aria-label="Navegação por capítulos" hidden>
+    <button type="button" id="slidePrev" aria-label="Capítulo anterior">←</button>
+    <span class="slidenav__label"><span id="slideNum">1</span>/<span id="slideTotal">9</span><span class="slidenav__title" id="slideTitle">Início</span></span>
+    <button type="button" id="slideNext" aria-label="Próximo capítulo">→</button>
+    <button type="button" id="slideExit" aria-label="Sair do modo apresentação" title="Sair do modo apresentação (Esc)" hidden>✕</button>
+  </nav>
+
+  <button type="button" class="to-top" id="toTop" aria-label="Voltar ao topo">↑</button>
+
+  <!-- Diálogo de conquistas -->
+  <dialog class="conquistas" id="conquistas" aria-labelledby="conquistasTitulo">
+    <div class="conquistas__head">
+      <div>
+        <p class="eyebrow" style="margin-bottom: 4px;">Seu progresso na mostra</p>
+        <h2 id="conquistasTitulo">Conquistas TI Verde</h2>
+      </div>
+      <button type="button" class="conquistas__close" id="conquistasClose" aria-label="Fechar janela de conquistas">✕</button>
+    </div>
+    <p class="conquistas__level" id="dlgLevel"></p>
+    <ul class="conquistas__grid" id="conquistasGrid"></ul>
+    <div class="conquistas__foot">
+      <span>Salvo localmente neste navegador. Use “Novo visitante” entre apresentações.</span>
+      <button type="button" class="btn btn--quiet" id="dlgReset" style="min-height: 38px; padding: 6px 14px;">Novo visitante</button>
+    </div>
+  </dialog>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+  <canvas class="confetti" id="confetti" aria-hidden="true"></canvas>
+
+  <script src="js/game.js"></script>
+  <script src="js/viz.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
