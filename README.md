@@ -1,58 +1,49 @@
-# T.I Verde — Tecnologia, Inovação e Sustentabilidade
+# T.I Verde — Tecnologia, Inovação e Sustentabilidade (EETEPA Vilhena Alves)
 
-Projeto educativo e interativo desenvolvido pela **turma P2 de Informática Subsequente 2026 da EETEPA Vilhena Alves** (SECTET / Governo do Pará) para o **Circuito Integrador 2026 — Feira de Projetos Integradores** (**26/11/2026, início às 19h30**).
+Site mobile-first dedicado à produção do **Curso Técnico em Informática (2º período subsequente 2026)** da **EETEPA Vilhena Alves** (SECTET / Governo do Pará) para o **Circuito Integrador 2026** (**26/11/2026, início às 19h30, Auditório da Escola Vilhena Alves, entrada gratuita**).
 
-🔗 **Acesse a página publicada (GitHub Pages):** [albertomateus9.github.io/TI_Verde](https://albertomateus9.github.io/TI_Verde/)
+🔗 **Página publicada (GitHub Pages):** [albertomateus9.github.io/TI_Verde](https://albertomateus9.github.io/TI_Verde/)  
+🔗 **Portal completo dos 5 cursos:** [albertomateus9.github.io/Projetos_Subsequente_2026](https://albertomateus9.github.io/Projetos_Subsequente_2026/)
 
 <p align="center">
-  <img src="assets/images/circuito-integrador-2026.jpg" alt="Cartaz oficial do Circuito Integrador 2026 — EETEPA Vilhena Alves" width="460" />
+  <img src="assets/images/oficina/hero-oficina-960.webp" alt="Estudantes da EETEPA Vilhena Alves trabalhando na oficina prática de T.I Verde" width="520" />
 </p>
 
 ---
 
-## O que há na página
+## O que foi produzido pela turma
 
-Construída em **HTML, CSS e JavaScript nativos** (sem build, sem frameworks pesados e seguindo os princípios do próprio *Green Coding*), a página funciona tanto para leitura em celulares quanto como apresentação interativa em monitor durante mostras científicas:
-
-1. **Abertura comparativa** — Compara uma estação de trabalho típica antes e depois das práticas de TI Verde e exibe o panorama global de reciclagem formal (22,3%).
-2. **Panorama em dados reais** — Quatro visualizações animadas (evolução do e-lixo global, waffle de reciclagem formal no Brasil, consumo elétrico global de data centers e ciclo de vida de um notebook) + **visualizador proporcional interativo de 200 dispositivos** em Canvas 2D.
-3. **Simulador do laboratório de informática** — Permite ajustar o número de computadores (10 a 50), horas ociosas e ações práticas (suspensão automática, desligamento de réguas, upgrade de SSD + RAM, Mini-PCs/Thin Clients e redução de impressões) com cálculo transparente de kWh, R$, kg de CO₂e e máquinas preservadas.
-4. **Engenharia da TI Verde** — Raio-X interativo do indicador **PUE** (*Power Usage Effectiveness*) e quatro frentes técnicas em abas acessíveis: *Hardware & Ciclo de Vida*, *Virtualização* (com demonstração de consolidação de 6 servidores físicos em 1 host), *Green Coding* e *Energia & Clima*.
-5. **Legislação e Logística Reversa** — Síntese da **PNRS (Lei nº 12.305/2010)**, do **Decreto nº 10.240/2020** e links diretos para os localizadores oficiais de Pontos de Entrega Voluntária (PEVs) da **Green Eletron** e da **ABREE**.
-6. **Triagem do e-lixo** — Mini-jogo interativo com 6 itens do cotidiano de TI para classificar entre *Reutilizar / Doar*, *Manutenção / Upgrade* e *Logística Reversa (PEV)*.
-7. **Como agir hoje** — Guia prático dividido por perfil (*Estudante*, *Laboratório / Escola* e *Futuro Técnico em TI*).
-8. **Desafio relâmpago + Gamificação local** — Oito perguntas cronometradas (atalhos de teclado `1`, `2`, `3`), XP, 10 conquistas, efeitos sonoros opcionais (`♪`, desligados por padrão) e placar local com botão **Novo visitante**.
+1. **Oficina real na EETEPA em 4 etapas** — Fotografias reais autorizadas pelos estudantes (trilho horizontal no celular e grade 2×2 no desktop, com ampliação sob demanda em `<dialog>` e segundo ângulo por etapa):
+   - **01 · Separar:** caixas etiquetadas *"Lixo Eletrônico"* e *"Precisa Testar"*.
+   - **02 · Testar:** diagnóstico na bancada com discos rígidos (HDs) marcados *"DEFEITO"* e nobreak aprovado com etiqueta *"OK"*.
+   - **03 · Recuperar:** limpeza técnica, limpa-contato e montagem de placas-mãe e gabinetes.
+   - **04 · Voltar ao uso:** estantes organizadas de gabinetes e monitores prontos + bancada de instalação de sistema operacional.
+2. **Três números verificados** — ~78% do impacto de um computador nasce na fabricação (ADEME / Fraunhofer IZM), ~3% de reciclagem formal no Brasil e 22,3% no mundo (ITU / UNITAR, Global E-waste Monitor 2024).
+3. **Triagem na bancada** — Atividade interativa por toque (`js/triage.js`, ~2,6 KB não comprimido) espelhando as etiquetas reais da oficina (*Reutilizar (OK)*, *Limpar / Consertar*, *Descarte certo (PEV)*).
+4. **Onde descartar gratuitamente** — Resumo direto da Lei Brasileira de Resíduos Sólidos (**PNRS — Lei nº 12.305/2010**) e do **Decreto nº 10.240/2020**, com links diretos para os localizadores de Pontos de Entrega Voluntária (PEVs) da **Green Eletron** e da **ABREE**.
 
 ---
 
-## Modo apresentação e acessibilidade
+## Acessibilidade, desempenho em 4G e continuidade com o portal
 
-- **Modo apresentação:** tecle `P` (ou clique em **Apresentar**) para tela cheia e navegue entre os capítulos com `←` `→`, `PageUp` / `PageDown` ou `↑` `↓`. Pressione `Esc` para sair.
-- **Acessibilidade (WCAG 2.2 AA):** barra superior com ajuste de fonte (`A−` / `A+`), modo **Alto contraste**, link para pular ao conteúdo, navegação completa por teclado em abas e diálogos, suporte a `prefers-reduced-motion` e conteúdo legível mesmo sem JavaScript.
-- **Privacidade:** progresso, preferências de leitura e placar ficam apenas no `localStorage` do navegador local; nenhum dado pessoal é enviado a terceiros.
+- **WCAG 2.2 AA+ / AAA:** barra de acessibilidade (`A−`, `A+` e **Alto contraste**) compartilhada pela mesma origem `https://albertomateus9.github.io` com o portal `Projetos_Subsequente_2026` via `localStorage`, skip-link, alvos `>= 44 px` e hierarquia estrita `H1 → H2 → H3`.
+- **Leve em 4G:** zero fontes externas bloqueantes, zero `@import`, imagens WebP em duas camadas sem EXIF/GPS (miniaturas `640×480` + lightbox sob demanda) e `404.html` 100% inline com redirecionamento para o portal dos demais cursos.
+- **Compatibilidade retroativa:** hashes legados da v1 (`#panorama`, `#legislacao`, `#agir`, `#simulador`, `#datacenter`, `#desafio`) e o caminho `/ti-verde/` redirecionam automaticamente para a seção equivalente na raiz.
 
 ---
 
 ## Como executar localmente
 
-Não é necessário instalar dependências. Basta abrir `index.html` no navegador ou iniciar um servidor estático na raiz do repositório:
-
 ```bash
 python -m http.server 8000
 ```
 
-Depois acesse `http://localhost:8000/`.
+Abra `http://localhost:8000/` no navegador.
 
 ---
 
 ## Fontes de dados e referências
 
-- **ITU / UNITAR — Global E-waste Monitor 2024:** 62 milhões de toneladas globais em 2022 (+82% desde 2010), 22,3% de reciclagem formal documentada no mundo, projeção de 82 Mt para 2030 e ~2,4 Mt geradas no Brasil (~3% de reciclagem formal). [ewastemonitor.info](https://ewastemonitor.info/the-global-e-waste-monitor-2024/)
-- **IEA — Electricity 2024 & Energy and AI (2025):** consumo elétrico global de data centers (~340 TWh em 2022, ~415 TWh em 2024, projeção cenário-base de ~945 TWh até 2030). [iea.org/reports/energy-and-ai](https://www.iea.org/reports/energy-and-ai)
-- **Uptime Institute — Global Data Center Survey 2024:** média global de PUE em 1,56. [uptimeinstitute.com](https://uptimeinstitute.com/resources/research-and-reports)
-- **ADEME & Fraunhofer IZM:** estudos de Avaliação de Ciclo de Vida (ACV) indicando que ~70% a 80% da pegada de carbono de notebooks ocorre na fase de fabricação.
-- **Legislação brasileira e PEVs:** [Lei nº 12.305/2010 (PNRS)](https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2010/lei/l12305.htm), [Decreto nº 10.240/2020](https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2020/decreto/d10240.htm), [Green Eletron](https://greeneletron.org.br/localizador) e [ABREE](https://abree.org.br/pontos-de-recebimento).
-
----
-
-> Desenvolvido pela **turma P2 de Informática Subsequente — EETEPA Vilhena Alves**.
+- **ITU / UNITAR — Global E-waste Monitor 2024:** 62 milhões de toneladas globais, 22,3% de reciclagem formal no mundo, ~2,4 Mt geradas no Brasil e ~3% de reciclagem formal documentada. [ewastemonitor.info](https://ewastemonitor.info/the-global-e-waste-monitor-2024/)
+- **ADEME & Fraunhofer IZM:** estudos de Avaliação de Ciclo de Vida indicando que ~70% a 80% da pegada de carbono de computadores ocorre na fabricação.
+- **Legislação brasileira e PEVs:** [Lei nº 12.305/2010 (PNRS)](https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2010/lei/l12305.htm), [Decreto nº 10.240/2020](https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2020/decreto/d10240.htm), [Localizador Green Eletron](https://greeneletron.org.br/localizador) e [Pontos de recebimento ABREE](https://abree.org.br/pontos-de-recebimento).
